@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Sudoku Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="game-panel" aria-label="Sudoku puzzle">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Neon logic studio</p>
+          <h1>Sudoku Pro</h1>
+        </div>
+        <div class="stats" aria-label="Game statistics">
+          <div class="stat">
+            <span>Time</span>
+            <strong id="timer">00:00</strong>
+          </div>
+          <div class="stat">
+            <span>Mistakes</span>
+            <strong><span id="mistakes">0</span>/3</strong>
+          </div>
+        </div>
+      </header>
+
+      <div class="toolbar" aria-label="Puzzle controls">
+        <label class="select-wrap">
+          <span>Difficulty</span>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+            <option value="expert">Expert</option>
+          </select>
+        </label>
+        <button class="ghost-btn" id="new-game" type="button">New Game</button>
+        <button class="ghost-btn" id="hint" type="button">Hint</button>
+        <button class="ghost-btn" id="clear" type="button">Clear</button>
+        <button class="toggle-btn" id="notes-toggle" type="button" aria-pressed="false">Notes</button>
+      </div>
+
+      <div class="board-wrap">
+        <div class="board" id="board" role="grid" aria-label="9 by 9 Sudoku board"></div>
+      </div>
+    </section>
+
+    <aside class="side-panel" aria-label="Number pad and status">
+      <div class="status-card">
+        <span id="status-label">In progress</span>
+        <p id="status-text">Select a cell, then choose a number. Matching rows, columns, and boxes glow as you play.</p>
+      </div>
+
+      <div class="number-pad" id="number-pad" aria-label="Number pad"></div>
+
+      <div class="mini-actions">
+        <button id="pause" type="button">Pause</button>
+        <button id="solve" type="button">Solve</button>
+      </div>
+    </aside>
+  </main>
+
+  <div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <p class="eyebrow" id="modal-kicker">Puzzle complete</p>
+      <h2 id="modal-title">Sharp work.</h2>
+      <p id="modal-message">You solved the grid with a perfect neon finish.</p>
+      <button id="modal-new" type="button">Start another</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
